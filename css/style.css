@@ -227,7 +227,7 @@ h6 {
 
 .item-main-block__body {
   position: absolute;
-  z-index: 3;
+  z-index: 2;
   bottom: 0;
   left: 0;
   text-align: left;
@@ -238,6 +238,7 @@ h6 {
   font-size: 0.875rem;
   line-height: 142%;
   margin-bottom: 0.5rem;
+  pointer-events: none;
 }
 
 .item-main-block__name span {
@@ -259,6 +260,10 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.25rem;
+  position: relative;
+  z-index: 3;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .item-main-block__button::before {
@@ -320,11 +325,11 @@ h6 {
 
 @media (max-width: 20em) {
   .main-block {
-    padding-top: 2.5rem;
+    padding-top: 5rem;
   }
 
   .main-block {
-    padding-bottom: 2.5rem;
+    padding-bottom: 5rem;
   }
 
   .main-block__title {
@@ -364,35 +369,39 @@ h6 {
   }
 }
 
-@media (max-width: 29.99875em) {
+@media (max-width: 47.99875em) {
   .main-block__items {
     -ms-grid-columns: auto;
     grid-template-columns: auto;
   }
+
+  .item-main-block__button {
+    padding: 0.125rem 0.5rem;
+  }
 }
 
 @media (min-width: 20em) and (max-width: 63.75em) {
-@supports (padding-top: clamp( 2.5rem , 1.1285714286rem  +  6.8571428571vw , 5.5rem )) {
+@supports (padding-top: clamp( 5rem , 4.7714285714rem  +  1.1428571429vw , 5.5rem )) {
     .main-block {
-      padding-top: clamp( 2.5rem , 1.1285714286rem  +  6.8571428571vw , 5.5rem );
+      padding-top: clamp( 5rem , 4.7714285714rem  +  1.1428571429vw , 5.5rem );
     }
 }
 
-@supports not (padding-top: clamp( 2.5rem , 1.1285714286rem  +  6.8571428571vw , 5.5rem )) {
+@supports not (padding-top: clamp( 5rem , 4.7714285714rem  +  1.1428571429vw , 5.5rem )) {
     .main-block {
-      padding-top: calc(2.5rem + 3 * (100vw - 20rem) / 43.75);
+      padding-top: calc(5rem + 0.5 * (100vw - 20rem) / 43.75);
     }
 }
 
-@supports (padding-bottom: clamp( 2.5rem , 0.7857142857rem  +  8.5714285714vw , 6.25rem )) {
+@supports (padding-bottom: clamp( 5rem , 4.4285714286rem  +  2.8571428571vw , 6.25rem )) {
     .main-block {
-      padding-bottom: clamp( 2.5rem , 0.7857142857rem  +  8.5714285714vw , 6.25rem );
+      padding-bottom: clamp( 5rem , 4.4285714286rem  +  2.8571428571vw , 6.25rem );
     }
 }
 
-@supports not (padding-bottom: clamp( 2.5rem , 0.7857142857rem  +  8.5714285714vw , 6.25rem )) {
+@supports not (padding-bottom: clamp( 5rem , 4.4285714286rem  +  2.8571428571vw , 6.25rem )) {
     .main-block {
-      padding-bottom: calc(2.5rem + 3.75 * (100vw - 20rem) / 43.75);
+      padding-bottom: calc(5rem + 1.25 * (100vw - 20rem) / 43.75);
     }
 }
 
@@ -510,5 +519,10 @@ h6 {
     -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
             transform: scale(1.1);
+  }
+
+  .item-main-block__button:hover {
+    border: 1px solid #fff;
+    color: #fff;
   }
 }
